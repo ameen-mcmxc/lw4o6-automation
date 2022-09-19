@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - given-names: Ameen
+    family-names: Al-Azzawi
+    name-particle: "Ameen Azzawi"
+    email: ameen.azzawi@gmail.com
+    affiliation: lw4o6, DS-Lite
+title: "Lightweight 4 over 6 test-bed"
+version: 1.0
+type: software
+date-released: 2022-09-30
+url: "https://github.com/ameen-mcmxc/lw4o6-automation"
+keywords:
+  - IPv6
+  - lw4o6
+  - DS-Lite
+  - IPIP6
+  - Tunneling
+  - Encapsulation
+  - NAT44
+  - IPv6-Transition
+  - securiy
+license: AGPL-3.0-or-later
