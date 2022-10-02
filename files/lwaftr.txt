@@ -7,9 +7,9 @@ softwire-config {
       // IPv6 interface
       internal-interface {
         ip "2001:db8:0:1::1";
-        mac "00:0c:29:ac:60:94";
+        mac "00:0c:29:ac:60:94";  // lwAFTR ens34 MAC
         next-hop {
-          ip "2001:db8:0:1::2";
+          ip "2001:db8:0:1::2";   // lwB4 ens35 IPv6
           // or: mac "";
         }
       }
@@ -17,7 +17,7 @@ softwire-config {
       // IPv4 interface
       external-interface {
         ip "192.0.2.1";
-        mac "00:0c:29:ac:60:9e";
+        mac "00:0c:29:ac:60:9e"; // lwAFTR ens35 MAC
         next-hop {
           ip "192.0.2.2";
           //mac "";
