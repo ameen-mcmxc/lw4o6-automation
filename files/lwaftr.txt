@@ -7,7 +7,7 @@ softwire-config {
       // IPv6 interface
       internal-interface {
         ip "2001:db8:0:1::1";
-        mac "00:0c:29:18:4c:dc";
+        mac "00:0c:29:ac:60:94";
         next-hop {
           ip "2001:db8:0:1::2";
           // or: mac "";
@@ -17,10 +17,10 @@ softwire-config {
       // IPv4 interface
       external-interface {
         ip "192.0.2.1";
-        mac "00:0c:29:18:4c:e6";
+        mac "00:0c:29:ac:60:9e";
         next-hop {
           ip "192.0.2.2";
-          //mac "00:0c:29:8d:85:74";
+          //mac "";
         }
       }
 
@@ -31,21 +31,42 @@ softwire-config {
   internal-interface {
     mtu 1540; // MTU of the IPv6 interface (note: IPv6 encapsulation overhead!)
     flow-label 42; // Flow label used for IPv6 encapsulation
+    allow-incoming-icmp true;
+    //error-rate-limiting {
+     // packets 600000;
+      //period 2;
+    //}
+    generate-icmp-errors true;
+    //hairpinning true;
+    //reassembly {
+     // max-fragments-per-packet 40;
+      //max-packets 20000;
+   // }
   }
   
   // IPv4 interface.
   external-interface {
     mtu 1500; // MTU of the IPv4 interface
+    generate-icmp-errors true;
+    allow-incoming-icmp true;
+    //error-rate-limiting {
+    //  packets 600000;
+    //  period 2;
+    //}
+    //reassembly {
+      //max-fragments-per-packet 40;
+      //max-packets 20000;
+    //}
   }
   
   binding-table {
     softwire {
       ipv4 198.18.0.1;
-      psid 0;
+      psid 1;
       b4-ipv6  2001:db8:0:1::2;
-      br-address 2001:db8:2::2;
+      br-address 2001:db8:2::2;  // to me, I see it as the tunnel end point, its an IP on lwAFTR side
       port-set {
-        psid-length 0;
+        psid-length 6;
       }
     }
   }
