@@ -80,3 +80,12 @@
      args:
        chdir: /root/snabb
        
+
+   - name: Create 'lwaftr-start.conf' file 
+     tags: snabb
+     ansible.builtin.template:
+       src: /root/lw4o6-automation/files/lwaftr.txt
+       dest: /root/snabb/lwaftr-start.conf
+       owner: root
+       mode: '755'
+       
