@@ -42,6 +42,9 @@ Note: the server and lwB4 machine must be on, so that ARP from lwAFTR towards IP
 
 ## Building lwB4 Router
 
+``
+ansible-playbook lwb4.yml
+``
 
 
 
