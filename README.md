@@ -38,3 +38,19 @@ sudo src/snabb lwaftr run --name "test-lwaftr" --cpu 2-3 --conf lwaftr-start.con
 
 Note: the server and lwB4 machine must be on, so that ARP from lwAFTR towards IPv4 Server and lwB4 work.
 
+
+
+## Building lwB4 Router
+
+
+
+
+## Building lwAFTR Router
+
+
+``
+ansible-playbook lwaftr.yml
+``
+
+
+
