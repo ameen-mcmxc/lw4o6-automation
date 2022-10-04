@@ -30,26 +30,7 @@
          - conntrack
          - gcc
          - bridge-utils
-         - hping3
        state: present
-
-   - name: Install several packages in case of deleting iptables
-     tags: iptables
-     yum: 
-       name: 
-         - iptables
-         - iproute
-         - dhclient
-         - plymouth
-         - initscripts
-         - kbd
-         - kexec-tools
-         - dracut
-         - firewalld
-         - iptables-services
-         - mlocate
-       state: present
-
 
    - name: Set the timezone.
      tags: NTP
