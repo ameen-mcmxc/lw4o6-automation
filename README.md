@@ -8,7 +8,7 @@ Just get the toplogy built, as shown belwo: -
 
 
 
-![test-bed](https://user-images.githubusercontent.com/45686881/193444013-bd52d64b-ca72-41ca-a06a-66788a9afea0.png)
+![test-bed](https://user-images.githubusercontent.com/45686881/193809234-a9ccf9fd-67e5-4ed4-8ede-4b61d0d26141.png)
 
 
 All machines are CentOS-7 and built using VMware Workstation Player.
