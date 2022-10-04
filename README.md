@@ -25,8 +25,9 @@ Pre-requisites:-
 To run snabb software on lwAFTR machine: -
 
 ``
-cd snabb
+cd /root/snabb
 ``
+
 ``
 sudo src/snabb lwaftr run --name "test-lwaftr" --cpu 2-3 --conf lwaftr-start.conf &
 ``
