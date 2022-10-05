@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 
 lwaft_extern_interface_ip='192.0.2.1'
