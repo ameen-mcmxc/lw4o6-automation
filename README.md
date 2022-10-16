@@ -32,9 +32,6 @@ To run snabb software on lwAFTR machine: -
 cd /root/snabb
 ``
 
-``
-sudo src/snabb lwaftr run --name "test-lwaftr" --cpu 2-3 --conf lwaftr-start.conf &
-``
 
 Note: the server and lwB4 machine must be on, so that ARP from lwAFTR towards IPv4 Server and lwB4 work.
 
@@ -53,6 +50,12 @@ ansible-playbook lwB4.yml
 
 ``
 ansible-playbook lwAFTR.yml
+
+isolcpu=2,3
+
+sudo src/snabb lwaftr run --name "test-lwaftr" --cpu 2-3 --conf lwaftr-start.conf &
+``
+
 ``
 
 
