@@ -15,15 +15,33 @@ Just get the toplogy built, as shown belwo: -
 
 
 
+After building the machines, configring the intefaces on IPv4 client, IPv4 server and 
+
 All machines are CentOS-7 and built using VMware Workstation Player.
 
-Pre-requisites:-
+Pre-requisites on every machine:-
 
-1- yum update
 
-2- yum install epel-release
+``
+yum update
+``
 
-3- yum install ansible
+``
+yum install epel-release
+``
+
+``
+yum install ansible
+``
+
+``
+yum install git
+``
+
+``
+git clone https://github.com/ameen-mcmxc/lw4o6-automation.git
+``
+
 
 
 To run snabb software on lwAFTR machine: -
