@@ -56,7 +56,6 @@ isolcpu=2,3
 sudo src/snabb lwaftr run --name "test-lwaftr" --cpu 2-3 --conf lwaftr-start.conf &
 ``
 
-``
 
 
 ## Building IPv4 Server: -
