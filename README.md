@@ -40,12 +40,21 @@ Note: the server and lwB4 machine must be on, so that ARP from lwAFTR towards IP
 ## Building lwB4 Router: -
 
 ``
+cd /root/lw4o6-automation
+``
+
+
+``
 ansible-playbook lwB4.yml
 ``
 
 
 
 ## Building lwAFTR Router: -
+
+``
+cd /root/lw4o6-automation
+``
 
 
 ``
@@ -64,6 +73,10 @@ sudo src/snabb lwaftr run --name "test-lwaftr" --cpu 2-3 --conf lwaftr-start.con
 
 ## Building IPv4 Server: -
 
+
+``
+cd /root/lw4o6-automation
+``
 
 ``
 ansible-playbook server.yml
