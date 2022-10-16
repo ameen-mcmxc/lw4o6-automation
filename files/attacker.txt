@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Default route to lwB4
+ip route add 192.0.2.0/24 via 10.0.0.1
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
+
+
+# Attacking Line
+# hping3 -S --flood -s 1050 192.0.2.2
