@@ -94,7 +94,7 @@ cd /root/lw4o6-automation
 ``
 
 ``
-ansible-playbook server.yml
+ansible-playbook IPv4-server.yml
 ``
 
 
