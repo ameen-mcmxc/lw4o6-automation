@@ -33,7 +33,7 @@ IPv4 Server: must be manually configured
 
 Now, the machines are built, the required IPs are configured.
 
-Let's prepare the machines for automation.
+## Preparation for automation.
 
 Pre-requisites on every machine:-
 
