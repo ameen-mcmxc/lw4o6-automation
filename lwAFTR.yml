@@ -9,7 +9,6 @@
      yum:
        update_only: yes
 
-
    - name: Install General Essential packages
      tags: essentials
      yum: 
@@ -55,12 +54,15 @@
        clone: yes
        update: yes
 
-   - name: Play around withing the repo 
+   - name: Compile everything.
      tags: snabb
      shell: make
      args:
        chdir: /root/snabb
-       
+
+   - name: Pause for 50 seconds till compiler is done.
+     ansible.builtin.pause:
+       seconds: "50"
 
    - name: Create 'lwaftr-start.conf' file 
      tags: snabb
@@ -69,4 +71,11 @@
        dest: /root/snabb/lwaftr-start.conf
        owner: root
        mode: '755'
-       
+
+   - name: Create Networking file 
+     tags: snabb
+     ansible.builtin.template:
+       src: /root/lw4o6-automation/files/lwaftr-networking.txt
+       dest: /root/networking.sh
+       owner: root
+       mode: '755'
