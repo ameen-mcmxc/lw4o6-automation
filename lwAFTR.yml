@@ -32,6 +32,7 @@
         - gcc
         - make
         - bridge-utils
+        - numactl
       state: present
 
   - name: Remove 'irqbalance' package, coz it affects the Performance
