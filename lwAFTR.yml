@@ -34,6 +34,11 @@
         - bridge-utils
       state: present
 
+  - name: Remove 'irqbalance' package, coz it affects the Performance
+    yum: 
+      name: irqbalance
+      state: absent
+
   - name: Set the timezone.
     tags: NTP
     shell: |
