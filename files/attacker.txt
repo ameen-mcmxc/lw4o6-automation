@@ -1,7 +1,11 @@
 #!/bin/bash
 
+
+target= '192.0.2.0/24'
+b4_ip= '10.0.0.1'
+
 # Default route to lwB4
-ip route add 192.0.2.0/24 via 10.0.0.1
+ip route add $target via $b4_ip
 
 echo 1 > /proc/sys/net/ipv4/ip_forward
 echo 1 > /proc/sys/net/ipv6/conf/all/forwarding

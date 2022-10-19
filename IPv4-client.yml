@@ -1,7 +1,8 @@
 ---
--  hosts: localhost
-   any_errors_fatal: true
-   gather_facts: no
+- name: Configure IPv4-Client
+  hosts: localhost
+  gather_facts: no
+  connection: local
 
   tasks:
   - name: Update the machine

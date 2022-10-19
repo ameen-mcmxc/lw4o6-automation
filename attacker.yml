@@ -1,7 +1,9 @@
 ---
--  hosts: localhost
-   any_errors_fatal: true
-   gather_facts: no
+- name: Configure the Attacker-machine
+  hosts: localhost
+  gather_facts: no
+  connection: local
+
 
   tasks:
   - name: Update the machine
