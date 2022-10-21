@@ -1,8 +1,8 @@
 # lw4o6-automation
 
-Building a Test-Bed for light weigth 4o6 IPv6 Transition Technology.
+Building a Test-Bed for light-weigth 4o6 IPv6 Transition Technology.
 
-Ansible software was used, to automate the process of installing and configuration the whole topology elemnts.
+Ansible software was used, to automate the process of installation and configuration of the whole topology eelemnts.
 
 Just get the toplogy built, as shown below: -
 
@@ -26,9 +26,9 @@ IPv4 client: must be manually configured
 
 LwB4: ens34 must be manually configured, the script will take care of the rest.
 
-LwAFTR: The script will take care of everything
+LwAFTR: The script will take care of everything.
 
-IPv4 Server: must be manually configured
+IPv4 Server: must be manually configured.
 
 
 Now, the machines are built, the required IPs are configured.
@@ -65,6 +65,10 @@ I assumed that you logged in as "root".
 
 ## Building IPv4 Client: -
 
+Make sure that you adjust interface names according to your topology.
+
+Login to IPv4-client Machine.
+
 ``
 cd /root/lw4o6-automation
 ``
@@ -75,7 +79,9 @@ ansible-playbook IPv4-client.yml
 
 ## Building lwB4 Router: -
 
-Make sure that you adjust inteface names according to your topology.
+Make sure that you adjust interface names according to your topology.
+
+Login to lwB4 Machine.
 
 ``
 cd /root/lw4o6-automation
@@ -87,7 +93,9 @@ ansible-playbook lwB4.yml
 
 ## Building IPv4 Server: -
 
-Make sure that you adjust inteface names according to your topology.
+Make sure that you adjust interface names according to your topology.
+
+Login to IPv4-server Machine.
 
 ``
 cd /root/lw4o6-automation
@@ -100,7 +108,9 @@ ansible-playbook IPv4-server.yml
 
 ## Building lwAFTR Router: -
 
-Make sure that you adjust inteface names according to your topology.
+Make sure that you adjust interface names according to your topology.
+
+Login to lwAFTR Machine.
 
 ``
 cd /root/lw4o6-automation
@@ -112,7 +122,7 @@ ansible-playbook lwAFTR.yml
 
 ## Running Snabb
 
-For Snabb ro work, run the commands below on lwAFTR: 
+For Snabb to work, run the commands below on lwAFTR: 
 
 ``
 isolcpu=2,3
