@@ -46,12 +46,6 @@
       timedatectl set-ntp true
       timedatectl set-timezone Europe/Berlin
 
-  - name: Edit "/etc/sysctl.conf" file
-    tags: sysctl
-    lineinfile:
-      path: /etc/sysctl.conf
-      line: " net.ipv4.ip_forward = 1 \n  net.ipv6.conf.all.forwarding = 1 \n net.ipv4.conf.all.accept_redirects = 0  \n net.ipv4.conf.all.send_redirects = 0 "  
-
   - name: Clone snabb-repo
     tags: sanbb
     git:
