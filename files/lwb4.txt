@@ -35,5 +35,9 @@ iptables -t nat -A POSTROUTING -p tcp  -o lw4o6 -j SNAT --to-source $B4V4ADDR:$p
 iptables -t nat -A POSTROUTING -p udp  -o lw4o6 -j SNAT --to-source $B4V4ADDR:$ports_range
 iptables -t nat -A POSTROUTING -p icmp -o lw4o6 -j SNAT --to-source $B4V4ADDR:$ports_range
 
+# To allow DNS queries
+iptables -A OUTPUT -p udp -m udp --dport 53 -j ACCEPT
+
+
 
 
