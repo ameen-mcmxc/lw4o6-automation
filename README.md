@@ -2,7 +2,7 @@
 
 Building a Test-Bed for light-weigth 4o6 IPv6 Transition Technology.
 
-Ansible software was used, to automate the process of installation and configuration of the whole topology eelemnts.
+Ansible software was used, to automate the process of installation and configuration of the whole topology elements.
 
 Just get the toplogy built, as shown below: -
 
@@ -139,5 +139,5 @@ killall -9 snabb
 ``
 
 
-Note: the IPv4 Server and lwB4 machines MUST be on, so that ARP from lwAFTR towards IPv4 Server and lwB4 works.
+Note: the IPv4 Server and lwB4 machines MUST be ON, so that ARP from lwAFTR towards IPv4 Server and lwB4 works.
 
