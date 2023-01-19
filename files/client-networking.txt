@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-target= '192.0.2.0/24'
-b4_ip= '10.0.0.1'
+target='192.0.2.0/24'
+b4_ip='10.0.0.1'
 
 # Default route to lwB4
 ip route add $target via $b4_ip
