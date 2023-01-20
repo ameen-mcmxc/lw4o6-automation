@@ -41,15 +41,14 @@
 
   - name: Create tunnelling and routing script 
     ansible.builtin.template:
-      src: /root/lw4o6-automation/files/lwb4.txt
+      src: lwb4.txt
       dest: /root/networking.sh
       owner: root
       mode: '755'
 
   - name: Create Attack mitigation script 
     ansible.builtin.template:
-      src: /root/lw4o6-automation/files/lwb4-attack-mitig.txt
+      src: lwb4-attack-mitig.txt
       dest: /root/mitigate.sh
       owner: root
       mode: '755'
-
