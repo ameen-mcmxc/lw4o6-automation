@@ -64,7 +64,7 @@
   - name: Create 'lwaftr-start.conf' file 
     tags: snabb
     ansible.builtin.template:
-      src: /root/lw4o6-automation/files/lwaftr.txt
+      src: lwaftr.txt
       dest: /root/snabb/lwaftr-start.conf
       owner: root
       mode: '755'
@@ -72,7 +72,7 @@
   - name: Create Networking file 
     tags: snabb
     ansible.builtin.template:
-      src: /root/lw4o6-automation/files/lwaftr-networking.txt
+      src: lwaftr-networking.txt
       dest: /root/networking.sh
       owner: root
       mode: '755'
