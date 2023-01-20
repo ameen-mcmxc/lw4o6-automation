@@ -61,7 +61,7 @@ softwire-config {
   
   binding-table {
     softwire {
-      ipv4 198.18.0.1;        // lwB4 public and external IP   
+      ipv4 203.0.113.1;        // lwB4 public and external IP   
       psid 1;
       b4-ipv6  2001:db8:0:1::2;
       br-address 2001:db8:2::2;  // to me, I see it as the tunnel end point, its an IP on lwAFTR side
