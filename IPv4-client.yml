@@ -41,7 +41,7 @@
 
   - name: Create Networking script 
     ansible.builtin.template:
-      src: /root/lw4o6-automation/files/client-networking.txt
+      src: client-networking.txt
       dest: /root/networking.sh
       owner: root
       mode: '755'
