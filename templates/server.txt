@@ -4,7 +4,7 @@
 lwaft_extern_interface_ip='192.0.2.1'
 lwaft_extern_interface_next_hop_with_mask='192.0.2.2/24'
 lwaft_extern_interface_next_hop_without_mask='192.0.2.2'
-lwB4_softwire_v4_network='198.18.0.0/24'
+lwB4_softwire_v4_network='203.0.113.0/24'
 interface='ens34'
 
 
