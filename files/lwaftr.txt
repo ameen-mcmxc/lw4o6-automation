@@ -17,7 +17,7 @@ softwire-config {
       // IPv4 interface
       external-interface {
         ip "192.0.2.1";          // Snabb's external IP
-        mac "00:0c:29:82:0d:ac"; // lwAFTR ens35 MAC
+        mac "00:0c:29:18:4c:e6"; // lwAFTR ens35 MAC
         next-hop {
           ip "192.0.2.2";        // IPv4 Server IP
           //mac "";
