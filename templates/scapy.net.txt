@@ -1,0 +1,11 @@
+from scapy.all import *
+import subprocess
+
+
+route = IPv6Route(dst='2001:db8:2::/64', nh='2001:db8:0:1::1', iface='ens34', src='2001:db8:0:1::5')
+send(route)
+
+conf.route6.add(dst='2001:db8:2::/64',gw='2001:db8:0:1::1',dev='ens34')
+
+
+subprocess.run(["ip", "-6", "route", "add", "2001:db8:2::/64", "via", "2001:db8:0:1::1", "dev", "ens34", "src", "2001:db8:0:1::5"])
