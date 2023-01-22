@@ -43,7 +43,15 @@
 
   - name: Create Networking and script 
     ansible.builtin.template:
-      src: /root/lw4o6-automation/files/attacker.txt
-      dest: /root/networking.sh
+      src: attacker.txt
+      dest: /root/lw-net.sh
+      owner: root
+      mode: '755'
+
+
+  - name: Create Sniffer and crafter script file.
+    ansible.builtin.template:
+      src: sniffer.txt
+      dest: /root/lw-sniffer.py
       owner: root
       mode: '755'
