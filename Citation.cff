@@ -3,7 +3,6 @@ message: "If you use this software, please cite it as below."
 authors:
   - given-names: Ameen
     family-names: Al-Azzawi
-    name-particle: "Ameen Azzawi"
     email: ameen.azzawi@gmail.com
     affiliation: lw4o6, DS-Lite
 title: "Lightweight 4 over 6 test-bed"
@@ -21,4 +20,6 @@ keywords:
   - NAT44
   - IPv6-Transition
   - securiy
+  - scapy
+  - DoS
 license: AGPL-3.0-or-later
