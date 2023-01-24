@@ -2,8 +2,9 @@
 
 from scapy.all import *
 import random
+import threading
 
-nat44_ip="198.18.0.1"
+nat44_ip="203.0.113.1"
 
 
 def packet_callback(packet):
@@ -18,8 +19,13 @@ def packet_callback(packet):
                       IP(src=nat44_ip, dst="192.0.2.2") /
                       ICMP(id=icmp_id,seq=icmp_seq) /
                       Raw(load="From Ameen with Love"))
-        sendp(new_packet,iface="ens34")
+        sendpfast(new_packet, pps=1000, mbps=1000, loop=10000, iface="ens34")
 
-# Sniff packets on interface ens34
-sniff(iface="ens34", prn=packet_callback)
+# Start sniffing in a background thread
+sniff_thread = threading.Thread(target=sniff, kwargs={"iface":"ens34", "prn":packet_callback})
+sniff_thread.daemon = True
+sniff_thread.start()
 
+# Keep the script running in the background
+while True:
+    pass
