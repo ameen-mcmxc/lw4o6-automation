@@ -1,0 +1,15 @@
+#!/bin/bash
+
+target='192.0.2.0/24'
+b4_ip='10.0.0.1'
+local_int='ens34'
+local_ip='10.0.0.2/24'
+
+ip link set $local_int up
+ip address add $local_ip dev $local_int
+
+# Default route to lwB4
+ip route add $target via $b4_ip
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+echo 1 > /proc/sys/net/ipv6/conf/all/forwarding

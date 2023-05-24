@@ -1,0 +1,33 @@
+#!/bin/bash
+
+
+lwaft_extern_interface_ip='192.0.2.1'
+lwaft_extern_interface_next_hop_with_mask='192.0.2.2/24'
+lwaft_extern_interface_next_hop_without_mask='192.0.2.2'
+lwB4_softwire_v4_network='203.0.113.0/24'
+interface='ens34'
+
+
+ip link set lo up
+
+# Configure external interface
+ethtool --offload $interface  rx off tx off
+ip address add dev $interface  local $lwaft_extern_interface_next_hop_with_mask
+ip link set $interface mtu 1500
+ip link set $interface up
+sleep 3
+
+# Route to 198.18.0.0/24 via lwAFTR
+ip route add $lwB4_softwire_v4_network via $lwaft_extern_interface_ip src $lwaft_extern_interface_next_hop_without_mask dev $interface
+
+# Default route to lwAFTR
+ip route add default via $lwaft_extern_interface_ip dev $interface
+
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
+
+iptables -F
+iptables -X
+ip6tables -F
+ip6tables -X
