@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Enable IPv4 / IPv6 forwading
-echo 1 > /proc/sys/net/ipv4/ip_forward
-echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
-
-# Flush iptables and ip6tables rule
-iptables -F
-ip6tables -F
