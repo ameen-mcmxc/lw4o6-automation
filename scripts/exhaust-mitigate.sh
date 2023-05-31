@@ -18,7 +18,7 @@ iptables -A INPUT -i lo -j ACCEPT
 iptables -A INPUT -p udp --dport 53 -j DROP
 
 # Rule 2: Permit DNS query packets at a rate of 10 packets per second
-iptables -A INPUT -p udp --dport 53 -m limit --limit 100/s --limit-burst 100 -j ACCEPT
+iptables -A INPUT -p udp --dport 53 -m limit --limit 100/s --limit-burst 200 -j ACCEPT
 
 # Save the iptables configuration
 iptables-save > /etc/iptables/rules.v4
