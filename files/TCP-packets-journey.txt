@@ -1,0 +1,995 @@
+
+Ether / IPv6 / IP / TCP 203.0.113.1:encrypted_admin > 192.0.2.2:ssh S / Raw
+###[ Ethernet ]### 
+  dst       = 00:0c:29:18:4c:dc
+  src       = 00:0c:29:47:e7:c0
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 0
+     plen      = 70
+     nh        = IP
+     hlim      = 64
+     src       = 2001:db8:0:1::2
+     dst       = 2001:db8:2::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 70
+        id        = 1
+        flags     = 
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0x7dad
+        src       = 203.0.113.1
+        dst       = 192.0.2.2
+        \options   \
+###[ TCP ]### 
+           sport     = encrypted_admin
+           dport     = ssh
+           seq       = 0
+           ack       = 0
+           dataofs   = 5
+           reserved  = 0
+           flags     = S
+           window    = 8192
+           chksum    = 0xa5df
+           urgptr    = 0
+           options   = []
+###[ Raw ]### 
+              load      = 'I am the payload of TCP packet'
+
+Ether / IPv6 / IP / TCP 192.0.2.2:ssh > 203.0.113.1:encrypted_admin SA / Padding
+###[ Ethernet ]### 
+  dst       = 00:0c:29:47:e7:c0
+  src       = 00:0c:29:18:4c:dc
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 42
+     plen      = 46
+     nh        = IP
+     hlim      = 255
+     src       = 2001:db8:2::2
+     dst       = 2001:db8:0:1::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 44
+        id        = 0
+        flags     = DF
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0x3dc8
+        src       = 192.0.2.2
+        dst       = 203.0.113.1
+        \options   \
+###[ TCP ]### 
+           sport     = ssh
+           dport     = encrypted_admin
+           seq       = 2293802541
+           ack       = 1
+           dataofs   = 6
+           reserved  = 0
+           flags     = SA
+           window    = 29200
+           chksum    = 0xf492
+           urgptr    = 0
+           options   = [('MSS', 1460)]
+###[ Padding ]### 
+              load      = '\x00\x00'
+
+Ether / IPv6 / IP / TCP 203.0.113.1:encrypted_admin > 192.0.2.2:ssh A
+###[ Ethernet ]### 
+  dst       = 00:0c:29:18:4c:dc
+  src       = 00:0c:29:47:e7:c0
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 0
+     plen      = 40
+     nh        = IP
+     hlim      = 64
+     src       = 2001:db8:0:1::2
+     dst       = 2001:db8:2::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 40
+        id        = 1
+        flags     = 
+        frag      = 0
+        ttl       = 64
+        proto     = tcp
+        chksum    = 0x7ccb
+        src       = 203.0.113.1
+        dst       = 192.0.2.2
+        \options   \
+###[ TCP ]### 
+           sport     = encrypted_admin
+           dport     = ssh
+           seq       = 1
+           ack       = 2293802542
+           dataofs   = 5
+           reserved  = 0
+           flags     = A
+           window    = 29200
+           chksum    = 0xc50
+           urgptr    = 0
+           options   = ''
+
+Ether / IPv6 / IP / TCP 192.0.2.2:ssh > 203.0.113.1:encrypted_admin PA / Raw
+###[ Ethernet ]### 
+  dst       = 00:0c:29:47:e7:c0
+  src       = 00:0c:29:18:4c:dc
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 42
+     plen      = 61
+     nh        = IP
+     hlim      = 255
+     src       = 2001:db8:2::2
+     dst       = 2001:db8:0:1::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 61
+        id        = 39408
+        flags     = DF
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0xa3c6
+        src       = 192.0.2.2
+        dst       = 203.0.113.1
+        \options   \
+###[ TCP ]### 
+           sport     = ssh
+           dport     = encrypted_admin
+           seq       = 2293802542
+           ack       = 1
+           dataofs   = 5
+           reserved  = 0
+           flags     = PA
+           window    = 29200
+           chksum    = 0x488a
+           urgptr    = 0
+           options   = []
+###[ Raw ]### 
+              load      = 'SSH-2.0-OpenSSH_7.4\r\n'
+
+
+
+Ether / IPv6 / IP / TCP 203.0.113.1:encrypted_admin > 192.0.2.2:ssh A
+###[ Ethernet ]### 
+  dst       = 00:0c:29:18:4c:dc
+  src       = 00:0c:29:47:e7:c0
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 0
+     plen      = 40
+     nh        = IP
+     hlim      = 64
+     src       = 2001:db8:0:1::2
+     dst       = 2001:db8:2::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 40
+        id        = 1
+        flags     = 
+        frag      = 0
+        ttl       = 64
+        proto     = tcp
+        chksum    = 0x7ccb
+        src       = 203.0.113.1
+        dst       = 192.0.2.2
+        \options   \
+###[ TCP ]### 
+           sport     = encrypted_admin
+           dport     = ssh
+           seq       = 0
+           ack       = 2293802542
+           dataofs   = 5
+           reserved  = 0
+           flags     = A
+           window    = 29200
+           chksum    = 0xc51
+           urgptr    = 0
+           options   = ''
+
+Ether / IPv6 / IP / TCP 192.0.2.2:ssh > 203.0.113.1:encrypted_admin A / Padding
+###[ Ethernet ]### 
+  dst       = 00:0c:29:47:e7:c0
+  src       = 00:0c:29:18:4c:dc
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 42
+     plen      = 46
+     nh        = IP
+     hlim      = 255
+     src       = 2001:db8:2::2
+     dst       = 2001:db8:0:1::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 40
+        id        = 39409
+        flags     = DF
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0xa3da
+        src       = 192.0.2.2
+        dst       = 203.0.113.1
+        \options   \
+###[ TCP ]### 
+           sport     = ssh
+           dport     = encrypted_admin
+           seq       = 2293802563
+           ack       = 1
+           dataofs   = 5
+           reserved  = 0
+           flags     = A
+           window    = 29200
+           chksum    = 0xc3b
+           urgptr    = 0
+           options   = ''
+###[ Padding ]### 
+              load      = '\x00\x00\x00\x00\x00\x00'
+
+
+
+Ether / IPv6 / IP / TCP 192.0.2.2:ssh > 203.0.113.1:encrypted_admin PA / Raw
+###[ Ethernet ]### 
+  dst       = 00:0c:29:47:e7:c0
+  src       = 00:0c:29:18:4c:dc
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 42
+     plen      = 61
+     nh        = IP
+     hlim      = 255
+     src       = 2001:db8:2::2
+     dst       = 2001:db8:0:1::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 61
+        id        = 39410
+        flags     = DF
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0xa3c4
+        src       = 192.0.2.2
+        dst       = 203.0.113.1
+        \options   \
+###[ TCP ]### 
+           sport     = ssh
+           dport     = encrypted_admin
+           seq       = 2293802542
+           ack       = 1
+           dataofs   = 5
+           reserved  = 0
+           flags     = PA
+           window    = 29200
+           chksum    = 0x488a
+           urgptr    = 0
+           options   = []
+###[ Raw ]### 
+              load      = 'SSH-2.0-OpenSSH_7.4\r\n'
+
+
+
+Ether / IPv6 / IP / TCP 203.0.113.1:encrypted_admin > 192.0.2.2:ssh A
+###[ Ethernet ]### 
+  dst       = 00:0c:29:18:4c:dc
+  src       = 00:0c:29:47:e7:c0
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 0
+     plen      = 40
+     nh        = IP
+     hlim      = 64
+     src       = 2001:db8:0:1::2
+     dst       = 2001:db8:2::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 40
+        id        = 1
+        flags     = 
+        frag      = 0
+        ttl       = 64
+        proto     = tcp
+        chksum    = 0x7ccb
+        src       = 203.0.113.1
+        dst       = 192.0.2.2
+        \options   \
+###[ TCP ]### 
+           sport     = encrypted_admin
+           dport     = ssh
+           seq       = 0
+           ack       = 2293802542
+           dataofs   = 5
+           reserved  = 0
+           flags     = A
+           window    = 29200
+           chksum    = 0xc51
+           urgptr    = 0
+           options   = ''
+
+Ether / IPv6 / IP / TCP 192.0.2.2:ssh > 203.0.113.1:encrypted_admin PA / Raw
+###[ Ethernet ]### 
+  dst       = 00:0c:29:47:e7:c0
+  src       = 00:0c:29:18:4c:dc
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 42
+     plen      = 61
+     nh        = IP
+     hlim      = 255
+     src       = 2001:db8:2::2
+     dst       = 2001:db8:0:1::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 61
+        id        = 39411
+        flags     = DF
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0xa3c3
+        src       = 192.0.2.2
+        dst       = 203.0.113.1
+        \options   \
+###[ TCP ]### 
+           sport     = ssh
+           dport     = encrypted_admin
+           seq       = 2293802542
+           ack       = 1
+           dataofs   = 5
+           reserved  = 0
+           flags     = PA
+           window    = 29200
+           chksum    = 0x488a
+           urgptr    = 0
+           options   = []
+###[ Raw ]### 
+              load      = 'SSH-2.0-OpenSSH_7.4\r\n'
+
+
+Ether / IPv6 / IP / TCP 203.0.113.1:encrypted_admin > 192.0.2.2:ssh A
+###[ Ethernet ]### 
+  dst       = 00:0c:29:18:4c:dc
+  src       = 00:0c:29:47:e7:c0
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 0
+     plen      = 40
+     nh        = IP
+     hlim      = 64
+     src       = 2001:db8:0:1::2
+     dst       = 2001:db8:2::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 40
+        id        = 1
+        flags     = 
+        frag      = 0
+        ttl       = 64
+        proto     = tcp
+        chksum    = 0x7ccb
+        src       = 203.0.113.1
+        dst       = 192.0.2.2
+        \options   \
+###[ TCP ]### 
+           sport     = encrypted_admin
+           dport     = ssh
+           seq       = 0
+           ack       = 2293802542
+           dataofs   = 5
+           reserved  = 0
+           flags     = A
+           window    = 29200
+           chksum    = 0xc51
+           urgptr    = 0
+           options   = ''
+
+Ether / IPv6 / IP / TCP 192.0.2.2:ssh > 203.0.113.1:encrypted_admin A / Padding
+###[ Ethernet ]### 
+  dst       = 00:0c:29:47:e7:c0
+  src       = 00:0c:29:18:4c:dc
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 42
+     plen      = 46
+     nh        = IP
+     hlim      = 255
+     src       = 2001:db8:2::2
+     dst       = 2001:db8:0:1::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 40
+        id        = 39412
+        flags     = DF
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0xa3d7
+        src       = 192.0.2.2
+        dst       = 203.0.113.1
+        \options   \
+###[ TCP ]### 
+           sport     = ssh
+           dport     = encrypted_admin
+           seq       = 2293802563
+           ack       = 1
+           dataofs   = 5
+           reserved  = 0
+           flags     = A
+           window    = 29200
+           chksum    = 0xc3b
+           urgptr    = 0
+           options   = ''
+###[ Padding ]### 
+              load      = '\x00\x00\x00\x00\x00\x00'
+
+
+
+Ether / IPv6 / IP / TCP 192.0.2.2:ssh > 203.0.113.1:encrypted_admin PA / Raw
+###[ Ethernet ]### 
+  dst       = 00:0c:29:47:e7:c0
+  src       = 00:0c:29:18:4c:dc
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 42
+     plen      = 61
+     nh        = IP
+     hlim      = 255
+     src       = 2001:db8:2::2
+     dst       = 2001:db8:0:1::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 61
+        id        = 39413
+        flags     = DF
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0xa3c1
+        src       = 192.0.2.2
+        dst       = 203.0.113.1
+        \options   \
+###[ TCP ]### 
+           sport     = ssh
+           dport     = encrypted_admin
+           seq       = 2293802542
+           ack       = 1
+           dataofs   = 5
+           reserved  = 0
+           flags     = PA
+           window    = 29200
+           chksum    = 0x488a
+           urgptr    = 0
+           options   = []
+###[ Raw ]### 
+              load      = 'SSH-2.0-OpenSSH_7.4\r\n'
+
+
+Ether / IPv6 / IP / TCP 203.0.113.1:encrypted_admin > 192.0.2.2:ssh A
+###[ Ethernet ]### 
+  dst       = 00:0c:29:18:4c:dc
+  src       = 00:0c:29:47:e7:c0
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 0
+     plen      = 40
+     nh        = IP
+     hlim      = 64
+     src       = 2001:db8:0:1::2
+     dst       = 2001:db8:2::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 40
+        id        = 1
+        flags     = 
+        frag      = 0
+        ttl       = 64
+        proto     = tcp
+        chksum    = 0x7ccb
+        src       = 203.0.113.1
+        dst       = 192.0.2.2
+        \options   \
+###[ TCP ]### 
+           sport     = encrypted_admin
+           dport     = ssh
+           seq       = 0
+           ack       = 2293802542
+           dataofs   = 5
+           reserved  = 0
+           flags     = A
+           window    = 29200
+           chksum    = 0xc51
+           urgptr    = 0
+           options   = ''
+
+
+Ether / IPv6 / IP / TCP 192.0.2.2:ssh > 203.0.113.1:encrypted_admin A / Padding
+###[ Ethernet ]### 
+  dst       = 00:0c:29:47:e7:c0
+  src       = 00:0c:29:18:4c:dc
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 42
+     plen      = 46
+     nh        = IP
+     hlim      = 255
+     src       = 2001:db8:2::2
+     dst       = 2001:db8:0:1::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 40
+        id        = 39414
+        flags     = DF
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0xa3d5
+        src       = 192.0.2.2
+        dst       = 203.0.113.1
+        \options   \
+###[ TCP ]### 
+           sport     = ssh
+           dport     = encrypted_admin
+           seq       = 2293802563
+           ack       = 1
+           dataofs   = 5
+           reserved  = 0
+           flags     = A
+           window    = 29200
+           chksum    = 0xc3b
+           urgptr    = 0
+           options   = ''
+###[ Padding ]### 
+              load      = '\x00\x00\x00\x00\x00\x00'
+
+
+Ether / IPv6 / IP / TCP 192.0.2.2:ssh > 203.0.113.1:encrypted_admin PA / Raw
+###[ Ethernet ]### 
+  dst       = 00:0c:29:47:e7:c0
+  src       = 00:0c:29:18:4c:dc
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 42
+     plen      = 61
+     nh        = IP
+     hlim      = 255
+     src       = 2001:db8:2::2
+     dst       = 2001:db8:0:1::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 61
+        id        = 39415
+        flags     = DF
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0xa3bf
+        src       = 192.0.2.2
+        dst       = 203.0.113.1
+        \options   \
+###[ TCP ]### 
+           sport     = ssh
+           dport     = encrypted_admin
+           seq       = 2293802542
+           ack       = 1
+           dataofs   = 5
+           reserved  = 0
+           flags     = PA
+           window    = 29200
+           chksum    = 0x488a
+           urgptr    = 0
+           options   = []
+###[ Raw ]### 
+              load      = 'SSH-2.0-OpenSSH_7.4\r\n'
+
+
+Ether / IPv6 / IP / TCP 203.0.113.1:encrypted_admin > 192.0.2.2:ssh A
+###[ Ethernet ]### 
+  dst       = 00:0c:29:18:4c:dc
+  src       = 00:0c:29:47:e7:c0
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 0
+     plen      = 40
+     nh        = IP
+     hlim      = 64
+     src       = 2001:db8:0:1::2
+     dst       = 2001:db8:2::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 40
+        id        = 1
+        flags     = 
+        frag      = 0
+        ttl       = 64
+        proto     = tcp
+        chksum    = 0x7ccb
+        src       = 203.0.113.1
+        dst       = 192.0.2.2
+        \options   \
+###[ TCP ]### 
+           sport     = encrypted_admin
+           dport     = ssh
+           seq       = 0
+           ack       = 2293802542
+           dataofs   = 5
+           reserved  = 0
+           flags     = A
+           window    = 29200
+           chksum    = 0xc51
+           urgptr    = 0
+           options   = ''
+
+Ether / IPv6 / IP / TCP 192.0.2.2:ssh > 203.0.113.1:encrypted_admin A / Padding
+###[ Ethernet ]### 
+  dst       = 00:0c:29:47:e7:c0
+  src       = 00:0c:29:18:4c:dc
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 42
+     plen      = 46
+     nh        = IP
+     hlim      = 255
+     src       = 2001:db8:2::2
+     dst       = 2001:db8:0:1::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 40
+        id        = 39416
+        flags     = DF
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0xa3d3
+        src       = 192.0.2.2
+        dst       = 203.0.113.1
+        \options   \
+###[ TCP ]### 
+           sport     = ssh
+           dport     = encrypted_admin
+           seq       = 2293802563
+           ack       = 1
+           dataofs   = 5
+           reserved  = 0
+           flags     = A
+           window    = 29200
+           chksum    = 0xc3b
+           urgptr    = 0
+           options   = ''
+###[ Padding ]### 
+              load      = '\x00\x00\x00\x00\x00\x00'
+
+
+Ether / IPv6 / IP / TCP 192.0.2.2:ssh > 203.0.113.1:encrypted_admin PA / Raw
+###[ Ethernet ]### 
+  dst       = 00:0c:29:47:e7:c0
+  src       = 00:0c:29:18:4c:dc
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 42
+     plen      = 61
+     nh        = IP
+     hlim      = 255
+     src       = 2001:db8:2::2
+     dst       = 2001:db8:0:1::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 61
+        id        = 39417
+        flags     = DF
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0xa3bd
+        src       = 192.0.2.2
+        dst       = 203.0.113.1
+        \options   \
+###[ TCP ]### 
+           sport     = ssh
+           dport     = encrypted_admin
+           seq       = 2293802542
+           ack       = 1
+           dataofs   = 5
+           reserved  = 0
+           flags     = PA
+           window    = 29200
+           chksum    = 0x488a
+           urgptr    = 0
+           options   = []
+###[ Raw ]### 
+              load      = 'SSH-2.0-OpenSSH_7.4\r\n'
+
+
+
+Ether / IPv6 / IP / TCP 203.0.113.1:encrypted_admin > 192.0.2.2:ssh A
+###[ Ethernet ]### 
+  dst       = 00:0c:29:18:4c:dc
+  src       = 00:0c:29:47:e7:c0
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 0
+     plen      = 40
+     nh        = IP
+     hlim      = 64
+     src       = 2001:db8:0:1::2
+     dst       = 2001:db8:2::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 40
+        id        = 1
+        flags     = 
+        frag      = 0
+        ttl       = 64
+        proto     = tcp
+        chksum    = 0x7ccb
+        src       = 203.0.113.1
+        dst       = 192.0.2.2
+        \options   \
+###[ TCP ]### 
+           sport     = encrypted_admin
+           dport     = ssh
+           seq       = 0
+           ack       = 2293802542
+           dataofs   = 5
+           reserved  = 0
+           flags     = A
+           window    = 29200
+           chksum    = 0xc51
+           urgptr    = 0
+           options   = ''
+
+Ether / IPv6 / IP / TCP 192.0.2.2:ssh > 203.0.113.1:encrypted_admin A / Padding
+###[ Ethernet ]### 
+  dst       = 00:0c:29:47:e7:c0
+  src       = 00:0c:29:18:4c:dc
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 42
+     plen      = 46
+     nh        = IP
+     hlim      = 255
+     src       = 2001:db8:2::2
+     dst       = 2001:db8:0:1::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 40
+        id        = 39418
+        flags     = DF
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0xa3d1
+        src       = 192.0.2.2
+        dst       = 203.0.113.1
+        \options   \
+###[ TCP ]### 
+           sport     = ssh
+           dport     = encrypted_admin
+           seq       = 2293802563
+           ack       = 1
+           dataofs   = 5
+           reserved  = 0
+           flags     = A
+           window    = 29200
+           chksum    = 0xc3b
+           urgptr    = 0
+           options   = ''
+###[ Padding ]### 
+              load      = '\x00\x00\x00\x00\x00\x00'
+
+
+
+Ether / IPv6 / IP / TCP 192.0.2.2:ssh > 203.0.113.1:encrypted_admin PA / Raw
+###[ Ethernet ]### 
+  dst       = 00:0c:29:47:e7:c0
+  src       = 00:0c:29:18:4c:dc
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 42
+     plen      = 61
+     nh        = IP
+     hlim      = 255
+     src       = 2001:db8:2::2
+     dst       = 2001:db8:0:1::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 61
+        id        = 39419
+        flags     = DF
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0xa3bb
+        src       = 192.0.2.2
+        dst       = 203.0.113.1
+        \options   \
+###[ TCP ]### 
+           sport     = ssh
+           dport     = encrypted_admin
+           seq       = 2293802542
+           ack       = 1
+           dataofs   = 5
+           reserved  = 0
+           flags     = PA
+           window    = 29200
+           chksum    = 0x488a
+           urgptr    = 0
+           options   = []
+###[ Raw ]### 
+              load      = 'SSH-2.0-OpenSSH_7.4\r\n'
+
+
+
+Ether / IPv6 / IP / TCP 203.0.113.1:encrypted_admin > 192.0.2.2:ssh A
+###[ Ethernet ]### 
+  dst       = 00:0c:29:18:4c:dc
+  src       = 00:0c:29:47:e7:c0
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 0
+     plen      = 40
+     nh        = IP
+     hlim      = 64
+     src       = 2001:db8:0:1::2
+     dst       = 2001:db8:2::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 40
+        id        = 1
+        flags     = 
+        frag      = 0
+        ttl       = 64
+        proto     = tcp
+        chksum    = 0x7ccb
+        src       = 203.0.113.1
+        dst       = 192.0.2.2
+        \options   \
+###[ TCP ]### 
+           sport     = encrypted_admin
+           dport     = ssh
+           seq       = 0
+           ack       = 2293802542
+           dataofs   = 5
+           reserved  = 0
+           flags     = A
+           window    = 29200
+           chksum    = 0xc51
+           urgptr    = 0
+           options   = ''
+
+Ether / IPv6 / IP / TCP 192.0.2.2:ssh > 203.0.113.1:encrypted_admin A / Padding
+###[ Ethernet ]### 
+  dst       = 00:0c:29:47:e7:c0
+  src       = 00:0c:29:18:4c:dc
+  type      = IPv6
+###[ IPv6 ]### 
+     version   = 6
+     tc        = 0
+     fl        = 42
+     plen      = 46
+     nh        = IP
+     hlim      = 255
+     src       = 2001:db8:2::2
+     dst       = 2001:db8:0:1::2
+###[ IP ]### 
+        version   = 4
+        ihl       = 5
+        tos       = 0x0
+        len       = 40
+        id        = 39420
+        flags     = DF
+        frag      = 0
+        ttl       = 63
+        proto     = tcp
+        chksum    = 0xa3cf
+        src       = 192.0.2.2
+        dst       = 203.0.113.1
+        \options   \
+###[ TCP ]### 
+           sport     = ssh
+           dport     = encrypted_admin
+           seq       = 2293802563
+           ack       = 1
+           dataofs   = 5
+           reserved  = 0
+           flags     = A
+           window    = 29200
+           chksum    = 0xc3b
+           urgptr    = 0
+           options   = ''
+###[ Padding ]### 
+              load      = '\x00\x00\x00\x00\x00\x00'
+
+
