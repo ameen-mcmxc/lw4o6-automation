@@ -24,4 +24,4 @@ def process_packet(packet):
 
 
 # start sniffing on ens34
-sniff(iface='ens34', filter="udp", prn=process_packet)
+sniff(iface='ens34', prn=process_packet)
