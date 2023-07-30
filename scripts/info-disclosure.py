@@ -6,13 +6,17 @@
 from scapy.all import *
 
 def packet_handler(packet):
+        
         if UDP in packet:
-            udp_payload = packet[UDP].payload
+            udp_payload = packet[UDP].payload.load
             print(f"Payload: {udp_payload}")
-        elif ICMPv6EchoRequest in packet:
-            icmp6_payload = packet[ICMPv6EchoRequest].data
+        
+        elif ICMP in packet and packet[IPv6].src == "2001:db8:0:1::2":
+            icmp6_payload = packet[ICMP].payload.load
             print(f"ICMPv6 echo request embedded Data: {icmp6_payload}")
-        elif TCP in packet and packet[IPv6].src == "2001:db8:0:1::2":
-            tcp_payload = packet[TCP].payload
+        
+        elif TCP in packet  and packet[IPv6].src == "2001:db8:0:1::2":
+            tcp_payload = packet[TCP].payload.load
             print(f"TCP Payload: {tcp_payload}")
-sniff(iface='ens34', filter='udp or icmp6 or tcp', prn=packet_handler)
+                
+sniff(iface='ens34', prn=packet_handler)
