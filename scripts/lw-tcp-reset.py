@@ -8,10 +8,10 @@ from scapy.all import *
 # The script sniffs the channel on ens34 and looks for TCP Sync-ACK packet,
 # then crafts new TCP RST pcket and forwards it accordingly.
 
-def packet_callback(packet):
+def  process_packet(packet):
     if TCP in packet and packet[IPv6].dst == "2001:db8:0:1::2" and packet[TCP].flags == 'SA':
         # Create the Ethernet layer
-        eth = Ether(dst='00:0c:29:18:4c:dc', src='00:0c:29:47:e7:c0', type=IPv6)
+        eth = Ether(dst='00:0c:29:18:4c:dc', src='00:0c:29:47:e7:c0')
         # Create the IPv6 layer
         ipv6 = IPv6(version=6, tc=0, fl=0, plen=20, nh=6, hlim=63, src='2001:db8:0:1::2', dst='2001:db8:2::2')
         ipv4 = IP(src='203.0.113.1', dst='192.0.2.2')
@@ -31,4 +31,4 @@ def packet_callback(packet):
         sendp(pkt, iface='ens34')
 
 # Start sniffing on the specified interface
-sniff(iface='ens34', prn=packet_callback, filter='tcp')
+sniff(iface='ens34', prn=process_packet)
