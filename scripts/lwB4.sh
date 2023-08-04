@@ -23,7 +23,7 @@ tun_int='lw4o6-tun'
 
 ip link set $B4INT up
 ip -6 addr add $B4V6ADDR dev $B4INT
-ip -6 tunnel add lw4o6-tun remote $AFTRV6ADDR local $B4V6ADDR2 mode ipip6 encaplimit 4 hoplimit 64 tclass 0x00 flowlabel 0x00000
+ip -6 tunnel add $tun_int remote $AFTRV6ADDR local $B4V6ADDR2 mode ipip6 encaplimit 4 hoplimit 64 tclass 0x00 flowlabel 0x00000
 ip link set dev $tun_int mtu 1400 up
 ip addr add $B4V4ADDR/32 dev $tun_int nodad
 
