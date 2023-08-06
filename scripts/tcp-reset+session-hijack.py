@@ -4,11 +4,12 @@ from scapy.all import *
 from scapy.layers.l2 import Ether
 import paramiko
 
+
 # Define SSH credentials
-ssh_host = "192.168.79.156"  # Attacker-2 IPv4 address
-ssh_port = 22
-ssh_username = "your_username" # Replace with the actual username
-ssh_password = "your_password"  # Replace with the actual password
+ssh_host = "192.168.79.156"      # Attacker-2 IPv4 address
+ssh_port = 22 			 # The Default SSH port number
+ssh_username = "your_username"   # Replace with the actual username
+ssh_password = "your_password"   # Replace with the actual password
 
 # Establish SSH connection and execute command
 def execute_ssh_commands():
@@ -16,7 +17,7 @@ def execute_ssh_commands():
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     ssh.connect(ssh_host, ssh_port, ssh_username, ssh_password)
     
-    # Specify the commands to run on the remote machine
+    # Specify the commands to run on the remote machine (Attacker-2)
     remote_commands = [
         "nohup conda deactivate &",
         "nohup /root/port-exahust.sh &"
