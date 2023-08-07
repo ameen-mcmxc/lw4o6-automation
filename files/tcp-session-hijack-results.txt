@@ -1,0 +1,90 @@
+[root@Server ~]# tcpdump  -n -p -i ens34
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on ens34, link-type EN10MB (Ethernet), capture size 262144 bytes
+22:20:20.737305 ARP, Request who-has 192.0.2.2 tell 192.0.2.1, length 46
+22:20:20.737363 ARP, Reply 192.0.2.2 is-at 00:0c:29:8d:85:74, length 28
+22:20:22.184008 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [S], seq 3451392411, win 29200, options [mss 1460,sackOK,TS val 4606820 ecr 0,nop,wscale 7], length 0
+22:20:22.184209 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [S.], seq 893481869, ack 3451392412, win 28960, options [mss 1460,sackOK,TS val 4667224 ecr 4606820,nop,wscale 7], length 0
+22:20:22.206038 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [.], ack 1, win 229, options [nop,nop,TS val 4606843 ecr 4667224], length 0
+22:20:22.246448 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:17, ack 3401485427, win 0, length 39: HTTP
+22:20:22.266535 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 17 win 227, options [nop,nop,TS val 4667286 ecr 4606843], length 0
+22:20:22.286964 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:40, ack 3401485427, win 0, length 39: HTTP
+22:20:22.296967 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 40, win 227, options [nop,nop,TS val 4667387 ecr 4606844], length 0
+22:20:22.306971 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:67, ack 3401485427, win 0, length 39: HTTP
+22:20:22.246981 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 67, win 227, options [nop,nop,TS val 4667223 ecr 4606847], length 0
+22:20:22.326990 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:95, ack 3401485427, win 0, length 39: HTTP
+22:20:22.246997 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 95, win 227, options [nop,nop,TS val 4667145 ecr 4606849], length 0
+22:20:22.347002 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:133, ack 3401485427, win 0, length 39: HTTP
+22:20:22.247012 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 133, win 227, options [nop,nop,TS val 4667783 ecr 4606851], length 0
+22:20:22.357019 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:140, ack 3401485427, win 0, length 39: HTTP
+22:20:22.367021 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 140, win 227, options [nop,nop,TS val 4667237 ecr 4606855], length 0
+22:20:22.377026 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:143, ack 3401485427, win 0, length 39: HTTP
+22:20:22.378029 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 143, win 227, options [nop,nop,TS val 4667335 ecr 4606859], length 0
+22:20:22.387033 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:150, ack 3401485427, win 0, length 39: HTTP
+22:20:22.399037 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 150, win 227, options [nop,nop,TS val 46673444 ecr 4606862], length 0
+22:20:22.407039 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:160, ack 3401485427, win 0, length 39: HTTP
+22:20:22.417042 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 160, win 227, options [nop,nop,TS val 4667472 ecr 4606867], length 0
+22:20:22.417945 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:147, ack 3401485427, win 0, length 39: HTTP
+22:20:22.427049 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 147, win 227, options [nop,nop,TS val 4667498 ecr 4606869], length 0
+22:20:22.437051 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:153, ack 3401485427, win 0, length 39: HTTP
+22:20:22.447055 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 153, win 227, options [nop,nop,TS val 4667518 ecr 4606871], length 0
+22:20:22.457057 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:169, ack 3401485427, win 0, length 39: HTTP
+22:20:22.459059 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 160, win 227, options [nop,nop,TS val 4667521 ecr 4606877], length 0
+22:20:22.467062 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:165, ack 3401485427, win 0, length 39: HTTP
+22:20:22.277065 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 165, win 227, options [nop,nop,TS val 4667522 ecr 4606880], length 0
+22:20:22.497069 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:169, ack 3401485427, win 0, length 39: HTTP
+22:20:22.517072 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 169, win 227, options [nop,nop,TS val 4667530 ecr 4606882], length 0
+22:20:22.527077 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:173, ack 3401485427, win 0, length 39: HTTP
+22:20:22.547035 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 173, win 227, options [nop,nop,TS val 4667535 ecr 4606889], length 0
+22:20:22.568976 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:179, ack 3401485427, win 0, length 39: HTTP
+22:20:22.586236 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 179, win 227, options [nop,nop,TS val 4667539 ecr 4606892], length 0
+22:20:22.606951 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:182, ack 3401485427, win 0, length 39: HTTP
+22:20:22.616843 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 182, win 227, options [nop,nop,TS val 4667541 ecr 4606896], length 0
+22:20:22.628754 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:195, ack 3401485427, win 0, length 39: HTTP
+22:20:22.649856 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 195, win 227, options [nop,nop,TS val 4667544 ecr 4606901], length 0
+22:20:22.669864 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:202, ack 3401485427, win 0, length 39: HTTP
+22:20:22.659874 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 202, win 227, options [nop,nop,TS val 4667551 ecr 4606909], length 0
+22:20:22.660964 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:199, ack 3401485427, win 0, length 39: HTTP
+22:20:22.669318 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 199, win 227, options [nop,nop,TS val 4667558 ecr 4606911], length 0
+22:20:22.677649 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:203, ack 3401485427, win 0, length 39: HTTP
+22:20:22.667856 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 203, win 227, options [nop,nop,TS val 4667560 ecr 4606914], length 0
+22:20:22.686595 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:206, ack 3401485427, win 0, length 39: HTTP
+22:20:22.702637 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 206, win 227, options [nop,nop,TS val 4667564 ecr 4606916], length 0
+22:20:22.729715 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:210, ack 3401485427, win 0, length 39: HTTP
+22:20:22.745692 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 210, win 227, options [nop,nop,TS val 4667568 ecr 4606919], length 0
+22:20:22.761964 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:217, ack 3401485427, win 0, length 39: HTTP
+22:20:22.782971 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 217, win 227, options [nop,nop,TS val 4667569 ecr 4606921], length 0
+22:20:22.801684 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:227, ack 3401485427, win 0, length 39: HTTP
+22:20:22.821865 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 227, win 227, options [nop,nop,TS val 4667571 ecr 4606922], length 0
+22:20:22.841962 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:230, ack 3401485427, win 0, length 39: HTTP
+22:20:22.861628 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 230, win 227, options [nop,nop,TS val 4667575 ecr 4606933], length 0
+22:20:22.887654 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:235, ack 3401485427, win 0, length 39: HTTP
+22:20:22.901623 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 235, win 227, options [nop,nop,TS val 4667574 ecr 4606947], length 0
+22:20:22.921752 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:240, ack 3401485427, win 0, length 39: HTTP
+22:20:22.926719 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 240, win 227, options [nop,nop,TS val 4667575 ecr 4606951], length 0
+22:20:22.961539 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:245, ack 3401485427, win 0, length 39: HTTP
+22:20:22.981628 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 245, win 227, options [nop,nop,TS val 4667578 ecr 4606953], length 0
+22:20:22.991762 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:250, ack 3401485427, win 0, length 39: HTTP
+22:20:23.010055 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 250, win 227, options [nop,nop,TS val 4667579 ecr 4606956], length 0
+22:20:23.029162 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:256, ack 3401485427, win 0, length 39: HTTP
+22:20:23.047691 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 256, win 227, options [nop,nop,TS val 4667580 ecr 4606961], length 0
+22:20:23.062782 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:260, ack 3401485427, win 0, length 39: HTTP
+22:20:23.082618 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 261, win 227, options [nop,nop,TS val 4667582 ecr 4606965], length 0
+22:20:23.102789 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:265, ack 3401485427, win 0, length 39: HTTP
+22:20:23.128764 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 265, win 227, options [nop,nop,TS val 4667585 ecr 4606966], length 0
+22:20:23.147852 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:270, ack 3401485427, win 0, length 39: HTTP
+22:20:23.166791 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 270, win 227, options [nop,nop,TS val 4667586 ecr 4606967], length 0
+22:20:23.186826 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:277, ack 3401485427, win 0, length 39: HTTP
+22:20:23.208168 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 277, win 227, options [nop,nop,TS val 4667588 ecr 4606971], length 0
+22:20:23.229964 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:280, ack 3401485427, win 0, length 39: HTTP
+22:20:23.248865 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 280, win 227, options [nop,nop,TS val 4667590 ecr 4606977], length 0
+22:20:23.269756 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:282, ack 3401485427, win 0, length 39: HTTP
+22:20:23.286896 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 282, win 227, options [nop,nop,TS val 4667592 ecr 4606980], length 0
+22:20:23.307891 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:285, ack 3401485427, win 0, length 39: HTTP
+22:20:23.339087 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 285, win 227, options [nop,nop,TS val 4667595 ecr 4606982], length 0
+22:20:23.359786 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:290, ack 3401485427, win 0, length 39: HTTP
+22:20:23.389742 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 290, win 227, options [nop,nop,TS val 4667599 ecr 4606988], length 0
+22:20:23.418924 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:297, ack 3401485427, win 0, length 39: HTTP
+22:20:23.437823 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 297, win 227, options [nop,nop,TS val 4667601 ecr 460691], length 0
+22:20:23.458962 IP 203.0.113.1.firefox > 192.0.2.2.http: Flags [P.], seq 1:311, ack 3401485427, win 0, length 39: HTTP
+22:20:23.478725 IP 192.0.2.2.http > 203.0.113.1.firefox: Flags [.], ack 311, win 227, options [nop,nop,TS val 4667609 ecr 460696], length 0
