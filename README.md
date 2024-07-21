@@ -1,4 +1,4 @@
-# lw4o6-automation
+# Lw4o6-builder
 
 Building a Test-Bed for light-weigth 4o6 IPv6 Transition Technology.
 
