@@ -35,7 +35,6 @@ LwAFTR: The script will take care of everything.
 
 IPv4 Server: must be manually configured. 
 
-(Make sure that IPv4 Server has at least one ens34 IPv4 capable interface )
 
 Now, the machines are built, the required IPs are configured.
 
