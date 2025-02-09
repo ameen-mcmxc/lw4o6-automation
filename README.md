@@ -27,10 +27,15 @@ IPv4 client: must be manually configured
 
 LwB4: ens34 must be manually configured, the script will take care of the rest.
 
-LwAFTR: The script will take care of everything.
+(Make sure that LwB4 has two interfaces: ens34 IPv4 capable interface &  ens35 IPv6 capable interface)
 
-IPv4 Server: must be manually configured.
+LwAFTR: The script will take care of everything. 
 
+(Make sure that LwAFTR has two interfaces: ens34 IPv6 capable interface &  ens35 IPv4 capable interface)
+
+IPv4 Server: must be manually configured. 
+
+(Make sure that IPv4 Server has at least one ens34 IPv4 capable interface )
 
 Now, the machines are built, the required IPs are configured.
 
