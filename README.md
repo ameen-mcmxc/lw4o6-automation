@@ -126,7 +126,7 @@ ansible-playbook lwAFTR.yml
 For Snabb to work, run the commands below on lwAFTR: 
 
 ``
-isolcpu=2,3
+isolcpus=2,3
 ``
 
 ``
